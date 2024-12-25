@@ -1,0 +1,51 @@
+$PSVersionTable (tells you version of powershell)
+
+Get-Module (shows currently imported modules)
+Get-Module -ListAvailable (shows list of all available modules)
+Get-Command (shows all available commands)
+
+Listing specific commands for specific modules
+Example:
+Get-Command -Module hyper-v
+
+Get-Command -Module TroubleshootingPack
+
+Get-Command -Module NameOfModule
+
+$env:PSModulePath (shows file paths where all modules are located)
+
+$env:PSModulePath + ";c:\filePath"  (adds the string filepath to the list of env module filepath)
+
+Get-Command -Module WindowsSearch,WindowsUpdate (how to list commands for multiple modules)
+
+Get-Command -Module Windows* (wildcard search)
+
+Get-Module -Name a* -ListAvailable (all modules starting with a)
+
+You can also do these types of searches (Get-Command -Verb get -Noun date)
+Get-Command -Noun item* (Example)
+Get-Command -Noun *item* (Example)
+Get-Command -Verb s* (Example)
+You can use the -Noun and -Verb at the same time as well
+
+You can also find commands with specific characters at specific locations of the string
+Get-Command -Verb ??w
+There we use the ?'s to search for commands that have 'w' as the 3rd character
+You can also use combination of * and ?
+Get-Command -Noun ?r*
+
+To get help for commands use Get-Help
+Get-Help CommandName
+Get-Help New-Alias (Example)
+Another method:
+help New-Alias -ShowWindow
+
+New-Alias (create new alias)
+Get-Alias (show aliases)
+
+Get-Command -Noun [a-c]*  (this lists commands with nounds that start with
+letters a through c
+
+Get-Command Get-Proccess -Syntax (provides command syntax without having to go into help)
+
+Get-Command -ParameterName computername (will show all the commands that have the parameter name specified)
